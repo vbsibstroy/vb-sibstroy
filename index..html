@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Строим дома под ключ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+ 
+    <!-- ШАПКА -->
+    <header class="header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+    <img src="images/logo.png" alt="ВБ Сибстрой" class="logo-img">
+    <div class="logo-text">ВБ Сибстрой</div>
+</a>
+            <nav class="nav">
+                <a href="#works">Работы</a>
+                <a href="#services">Услуги</a>
+                <a href="#contacts">Контакты</a>
+            </nav>
+            <a href="tel:+79832618006" class="phone">+7 983 261-80-06</a>
+        <span class="region">Москва и Московская область</span> 
+    </div>
+    </header>
+ 
+    <!-- HERO -->
+<section class="hero">
+    <div class="container hero-inner">
+        <div class="hero-content">
+
+            <h1>Строим дома <br>под ключ</h1>
+            <p>Проектируем и строим современные дома, бани и модульные конструкции. Фиксированная стоимость, гарантия 10 лет, срок — от 30 дней.</p>
+            <div class="hero-buttons">
+                <a href="#contacts" class="btn">Оставить заявку</a>
+                <a href="#works" class="btn btn-outline-light">Смотреть работы</a>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+    <!-- КАТЕГОРИИ -->
+<section class="section" id="services">
+    <div class="container">
+        <h2>Что мы строим</h2>
+        <div class="categories">
+            <a href="#contacts" class="category">
+                <h3>Дома под ключ</h3>
+                <p class="price">от 3 500 000 ₽</p>
+                <span class="more">Подробнее →</span>
+            </a>
+            <a href="#contacts" class="category">
+                <h3>Каркасные дома</h3>
+                <p class="price">от 2 200 000 ₽</p>
+                <span class="more">Подробнее →</span>
+            </a>
+            <a href="#contacts" class="category">
+    <h3>Модульные дома</h3>
+    <p class="price">от 1 500 000 ₽</p>
+    <span class="more">Подробнее →</span>
+</a>
+<a href="#contacts" class="category">
+    <h3>Бани и хозблоки</h3>
+    <p class="price">от 400 000 ₽</p>
+    <span class="more">Подробнее →</span>
+</a>
+
+            </a>
+        </div>
+    </div>
+</section>
+
+ 
+    <!-- ГАЛЕРЕЯ -->
+    <section class="section section-alt" id="works">
+        <div class="container">
+            <h2>Наши работы</h2>
+            <div class="gallery">
+                <img src="images/dom1.jpg" alt="Современный дом с террасой">
+                <img src="images/dom2.jpg" alt="Дом с вечерним освещением">
+            </div>
+        </div>
+    </section>
+ 
+    <!-- КОНТАКТЫ -->
+<section class="section" id="contacts">
+    <div class="container">
+        <h2>Оставьте заявку</h2>
+        <p class="section-subtitle">Перезвоним в течение часа, бесплатно проконсультируем</p>
+ 
+        <form class="contact-form" id="leadForm">
+            <div class="form-row">
+                <input type="text" name="name" placeholder="Ваше имя" required>
+                <input type="tel" name="phone" placeholder="+7 (___) ___-__-__" required>
+            </div>
+            <textarea name="message" placeholder="Что вас интересует? (необязательно)" rows="3"></textarea>
+            <button type="submit" class="btn">Отправить заявку</button>
+            <p class="form-note">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+        </form>
+ 
+        <div class="contact-alt">
+            <p>Или свяжитесь напрямую:</p>
+            <div class="contact-buttons">
+                <a href="tel:+79832618006" class="btn btn-outline-light">📞 Позвонить</a>
+                <a href="https://t.me/m/w0CZLkogNTk6" class="btn btn-outline-light">✉️ Telegram</a>
+            </div>
+        </div>
+    </div>
+</section>
+ 
+    <!-- ПОДВАЛ -->
+    <footer class="footer">
+        <div class="container">
+            <p>© 2026 ВБ Сибстрой. Строительство домов под ключ.</p>
+        </div>
+    </footer>
+<script>
+document.getElementById('leadForm').addEventListener('submit', function(e) {
+    e.preventDefault();
+ 
+    const name = this.name.value;
+    const phone = this.phone.value;
+    const message = this.message.value || 'не указано';
+ 
+    const text = `🏠 Новая заявка с сайта!\n\nИмя: ${name}\nТелефон: ${phone}\nИнтересует: ${message}`;
+ 
+    fetch('https://ntfy.sh/tk_uidyvdp317okojroutr5i7zo76aab', {
+        method: 'POST',
+        body: text
+    })
+    .then(() => {
+        alert('Спасибо! Заявка отправлена. Мы свяжемся с вами в течение часа.');
+        this.reset();
+    })
+    .catch(() => {
+        alert('Ошибка отправки. Позвоните нам напрямую: +7 983 261-80-06');
+    });
+});
+</script> 
+</body>
+</html>
