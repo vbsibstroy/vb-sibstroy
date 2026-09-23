@@ -61,7 +61,7 @@ body {
 }
 /* HERO */
 .hero {
-    background: url('images/dom1.jpg') center/cover no-repeat;
+    background: url('dom1.jpg') center/cover no-repeat;
     color: #fff;
     padding: 200px 0 100px;
     min-height: 90vh;
